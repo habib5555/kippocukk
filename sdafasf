@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	double pi = acos(-1);
+	float fluxdensity;
+	cout << "flux density giriniz(T cinsinden): ";
+	cin >> fluxdensity;
+	cout << "depth giriniz(cm cinsinden): ";
+	float depth;
+	cin >> depth;
+	cout << "kenar uzunlugunu giriniz cm cinsinden:";
+	float kenar;
+	cin >> kenar;
+	float Beff =  fluxdensity * (depth / 100) * (kenar / 100)*(1.05);
+	float Bright = Beff / (pow(depth / 100, 2));
+	float Btlb = Beff / 0.005;
+	cout << "Bright=" << Bright << " T\n";
+	cout << "Btlb=" << Btlb << " T\n";
+	cout << "grafikten bakarak H degerlerini siriyla  Hright ve Htlb degerlerini giriniz: ";
+	float Hag = fluxdensity / (pi * 4 * 0.0000001);
+	float Hright, Htbl;
+	cin >> Hright >> Htbl;
+	cout << "lutfen airgap giriniz(cm cinsinden): ";
+	float airgap;
+	cin >> airgap;
+	float cozum;
+	cozum = Hag * (airgap / 100) + Hright * 0.4 + 3*Htbl * 0.4;
+	cout << "sonuc=" << cozum;
+		
+
+}
